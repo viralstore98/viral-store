@@ -1,0 +1,317 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  <meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Order - Viral Store</title>  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  <style>  
+  
+*{  
+margin:0;  
+padding:0;  
+box-sizing:border-box;  
+}  
+  
+body{  
+  
+font-family:Poppins,sans-serif;  
+  
+background:  
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),  
+url("images/streetfighter-bg.jpg");  
+  
+background-size:cover;  
+background-position:center;  
+min-height:100vh;  
+  
+display:flex;  
+justify-content:center;  
+align-items:center;  
+  
+color:white;  
+  
+}  
+  
+.order-box{  
+  
+width:95%;  
+max-width:500px;  
+  
+background:rgba(20,20,20,.75);  
+  
+backdrop-filter:blur(12px);  
+  
+padding:35px;  
+  
+border-radius:25px;  
+  
+border:2px solid rgba(255,215,0,.3);  
+  
+box-shadow:0 0 30px rgba(255,0,0,.4);  
+  
+}  
+.summary{  
+margin-bottom:25px;  
+}  
+  
+.summary h2{  
+text-align:center;  
+color:gold;  
+margin-bottom:15px;  
+font-family:Orbitron,sans-serif;  
+}  
+  
+.summary-box{  
+background:rgba(255,255,255,.06);  
+padding:20px;  
+border-radius:15px;  
+border:1px solid rgba(255,215,0,.3);  
+box-shadow:0 0 15px rgba(255,0,0,.2);  
+}  
+  
+.summary-box p{  
+margin-bottom:10px;  
+font-size:18px;  
+color:#ffd700;  
+}  
+  
+h1{  
+  
+text-align:center;  
+  
+color:gold;  
+  
+margin-bottom:25px;  
+  
+font-family:Orbitron,sans-serif;  
+  
+}  
+label{  
+  
+display:block;  
+  
+margin-top:18px;  
+  
+margin-bottom:8px;  
+  
+font-weight:bold;  
+  
+}  
+  
+input{  
+  
+width:100%;  
+  
+padding:15px;  
+  
+border:none;  
+  
+border-radius:12px;  
+  
+font-size:16px;  
+  
+outline:none;  
+  
+}  
+  
+button{  
+  
+width:100%;  
+  
+margin-top:25px;  
+  
+padding:18px;  
+  
+background:#ff2020;  
+  
+color:white;  
+  
+border:none;  
+  
+border-radius:14px;  
+  
+font-size:18px;  
+  
+font-weight:bold;  
+  
+cursor:pointer;  
+  
+transition:.3s;  
+  
+}  
+  
+button:hover{  
+  
+background:#ff9800;  
+  
+}  
+.trust{  
+margin-top:25px;  
+display:grid;  
+grid-template-columns:repeat(2,1fr);  
+gap:12px;  
+}  
+  
+.trust div{  
+background:rgba(255,255,255,.06);  
+padding:12px;  
+border-radius:12px;  
+text-align:center;  
+font-size:14px;  
+border:1px solid rgba(255,215,0,.2);  
+transition:.3s;  
+}  
+  
+.trust div:hover{  
+transform:scale(1.05);  
+border-color:gold;  
+box-shadow:0 0 15px rgba(255,215,0,.4);  
+}  
+.success-popup{  
+display:none;  
+position:fixed;  
+top:0;  
+left:0;  
+width:100%;  
+height:100%;  
+background:rgba(0,0,0,.8);  
+justify-content:center;  
+align-items:center;  
+z-index:9999;  
+}  
+  
+.success-box{  
+background:#181818;  
+padding:35px;  
+border-radius:20px;  
+text-align:center;  
+border:2px solid gold;  
+box-shadow:0 0 30px red;  
+}  
+  
+.success-box h2{  
+color:#00ff66;  
+margin-bottom:15px;  
+}  
+.order-note{  
+background:#181818;  
+border:2px solid gold;  
+border-radius:18px;  
+padding:20px;  
+margin:25px 0;  
+text-align:center;  
+}  
+  
+.order-note h3{  
+color:gold;  
+margin-bottom:12px;  
+}  
+  
+.order-note p{  
+color:#ddd;  
+line-height:1.6;  
+margin-bottom:15px;  
+}  
+  
+#orderSummary{  
+width:100%;  
+height:140px;  
+background:#0f0f0f;  
+color:white;  
+border:1px solid #333;  
+border-radius:10px;  
+padding:12px;  
+resize:none;  
+font-size:15px;  
+margin-bottom:15px;  
+}  
+  
+#copyBtn{  
+width:100%;  
+padding:14px;  
+background:gold;  
+color:black;  
+border:none;  
+border-radius:10px;  
+font-weight:bold;  
+font-size:17px;  
+cursor:pointer;  
+}  
+</style>  </head>  <body>  <div class="order-box">  <h1>🎮 Viral Store</h1>  <div class="summary">  <h2>🎮 ORDER SUMMARY</h2>  <div class="summary-box">  <p><strong>📦 Package</strong></p>  <input  
+type="text"  
+id="package"  
+readonly>
+
+</div>  </div>  <label>MLBB ID</label>
+
+<input  
+type="text"  
+id="mlid"  
+placeholder="Enter MLBB ID">
+
+<label>Server ID</label>
+
+<input  
+type="text"  
+id="server"  
+placeholder="Enter Server ID">
+
+<div class="order-note">  <h3>📋 Almost Done!</h3>  <p>  
+After Instagram opens:  
+<br><br>  
+1️⃣ Tap <b>Message</b><br>  
+2️⃣ Paste the copied order details.<br>  
+3️⃣ We'll send your payment QR code.  
+</p>  <textarea id="orderSummary" readonly></textarea>  <button id="copyBtn">  
+📋 Copy Order Details  
+</button>  </div>  
+<button id="instaOrderBtn">  📩 Send Order on Instagram
+
+</button>  
+<div class="trust">  <div>⚡ Instant Delivery</div>  <div>🛡️ 100% Safe</div>  <div>❤️ Trusted by Players</div>  <div>📷 Instagram: @viral_store98</div>  </div>  
+</div>  
+</div>  <script>  
+  
+const params = new URLSearchParams(window.location.search);  
+  
+const packageName = params.get("package");  
+  
+if(packageName){  
+document.getElementById("package").value = packageName;  
+}  
+  
+document.getElementById("instaOrderBtn").addEventListener("click",function(){  
+  
+const pack=document.getElementById("package").value;  
+const mlid=document.getElementById("mlid").value;  
+const server=document.getElementById("server").value;  
+  
+if(mlid=="" || server==""){  
+alert("Please enter your MLBB ID and Server ID.");  
+return;  
+}  
+  
+const message=  
+`🎮 VIRAL STORE ORDER  
+  
+📦 Package: ${pack}  
+  
+🆔 MLBB ID: ${mlid}  
+  
+🌐 Server ID: ${server}  
+  
+Hi! I want to place this order.`;  
+  
+navigator.clipboard.writeText(message);  
+  
+document.getElementById("successPopup").style.display="flex";  
+  
+setTimeout(function(){  
+  
+window.open("https://www.instagram.com/viral_store98/","_blank");  
+  
+document.getElementById("successPopup").style.display="none";  
+  
+},2000);  
+  
+});  
+  
+</script>  <div id="successPopup" class="success-popup">  <div class="success-box">  <h2>✅ ORDER READY</h2>  <p>Your order has been prepared.</p>  <p>Instagram will open in 2 seconds...</p>  </div>  </div>  
+</body>  
+</html>
